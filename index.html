@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-ветеринар онлайн - бесплатные консультации для ваших питомцев. Получите профессиональную помощь 24/7 в Telegram боте.">
+    <meta name="keywords" content="ветеринар онлайн, консультация ветеринара, помощь животным, телеграм бот ветеринар, бесплатный ветеринар, AI ветеринар">
+    <title>AI Ветеринар онлайн | Бесплатные консультации в Telegram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --primary-dark: #2667cc;
+            --secondary: #8338ec;
+            --accent: #ff006e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #28a745;
+            --warning: #fd7e14;
+            --danger: #dc3545;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 15px 50px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fefefe;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 5px 15px rgba(58, 134, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(58, 134, 255, 0.5);
+        }
+
+        .btn-primary:active {
+            transform: translateY(1px);
+        }
+
+        .btn-lg {
+            padding: 16px 40px;
+            font-size: 16px;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--dark);
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mb-0 {
+            margin-bottom: 0 !important;
+        }
+
+        .mb-1 {
+            margin-bottom: 0.5rem !important;
+        }
+
+        .mb-2 {
+            margin-bottom: 1rem !important;
+        }
+
+        .mb-3 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .mb-4 {
+            margin-bottom: 2rem !important;
+        }
+
+        .mb-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(58, 134, 255, 0.1) 0%, rgba(131, 56, 236, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 700px;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiMxMTExMTEiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSI+PHBhdGggZD0iTTAgMEg0MFY0MEgweiIvPjwvc3ZnPg==');
+            z-index: 0;
+        }
+
+        .hero-animals {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSIxNTAiIHZpZXdCb3g9IjAgMCAxMjAwIDE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIwMCAxNTBIMFYwIiBzdHJva2U9IiNlZGVkZWQiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0wIDE1MGgxMjAwIiBzdHJva2U9IiNlZGVkZWQiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0wIDE1MGgxMjAwIiBzdHJva2U9IiNlZGVkZWQiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0wIDE1MGgxMjAwIiBzdHJva2U9IiNlZGVkZWQiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0wIDE1MGgxMjAwIiBzdHJva2U9IiNlZGVkZWQiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0wIDE1MGgxMjAwIiBzdHJva2U9IiNlZGVkZWQiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0wIDE1MGgxMjAwIiBzdHJva2U9IiNlZGVkZWQiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0wIDE1MGgxMjAwIiBzdHJva2U9IiNlZGVkZWQiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0wIDE1MGgxMjAwIiBzdHJva2U9IiNlZGVkZWQiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0wIDE1MGgxMjAwIiBzdHJva2U9IiNlZGVkZWQiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==');
+            z-index: 1;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            position: relative;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: var(--light);
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            position: relative;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .step-number:after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px dashed var(--primary);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: var(--gray);
+        }
+
+        .steps-connector {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, rgba(58, 134, 255, 0.1) 0%, rgba(131, 56, 236, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiMxMTExMTEiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSI+PHBhdGggZD0iTTAgMEg0MFY0MEgweiIvPjwvc3ZnPg==');
+            z-index: 0;
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            opacity: 0.1;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--primary);
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            background: var(--light);
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--light-gray);
+        }
+
+        .faq-question:after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-question:after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSI+PHBhdGggZD0iTTAgMEg0MFY0MEgweiIvPjwvc3ZnPg==');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-logo-icon {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .footer-description {
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(-50%) translateX(0);
+            }
+            50% {
+                transform: translateY(-50%) translateX(-10px);
+            }
+            100% {
+                transform: translateY(-50%) translateX(0);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-image {
+                width: 45%;
+                opacity: 0.8;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero {
+                text-align: center;
+                padding-top: 100px;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .hero-image {
+                position: relative;
+                width: 100%;
+                max-width: 500px;
+                margin: 50px auto 0;
+                transform: none;
+                right: auto;
+                top: auto;
+                animation: float 6s ease-in-out infinite;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 10px 25px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+
+            .step {
+                min-width: 100%;
+            }
+
+            .steps-connector {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fas fa-paw"></i></span>
+                <span>Vet<span class="text-primary">Care</span>AI</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Возможности</a></li>
+                <li><a href="#how-it-works">Как это работает</a></li>
+                <li><a href="#testimonials">Отзывы</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="https://t.me/animal_vethelp_bot" class="btn btn-primary">Попробовать бесплатно</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <div class="hero-content animate-in">
+                <h1 class="hero-title">Профессиональная ветеринарная помощь <span class="text-gradient">в вашем телефоне</span></h1>
+                <p class="hero-subtitle">Наш AI-ветеринар доступен 24/7, чтобы помочь вашему питомцу в любое время. Быстро, точно и бесплатно.</p>
+                <a href="https://t.me/animal_vethelp_bot" class="btn btn-primary btn-lg">Начать консультацию</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Ветеринар с собакой" class="hero-image animate-in" style="animation-delay: 0.3s;">
+        </div>
+        <div class="hero-animals"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <h2 class="section-title animate-in">Почему выбирают <span class="text-gradient">нашего бота</span></h2>
+            <div class="features-container">
+                <div class="feature-card animate-in">
+                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                    <h3 class="feature-title">Мгновенная помощь</h3>
+                    <p>Получите ответ на ваш вопрос о здоровье питомца в течение минуты, без ожидания и очередей.</p>
+                </div>
+                <div class="feature-card animate-in" style="animation-delay: 0.2s;">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h3 class="feature-title">AI-эксперт</h3>
+                    <p>Наш бот обучен на тысячах случаев и обладает знаниями профессионального ветеринара.</p>
+                </div>
+                <div class="feature-card animate-in" style="animation-delay: 0.4s;">
+                    <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+                    <h3 class="feature-title">Бесплатно</h3>
+                    <p>Полноценные консультации без скрытых платежей и подписок. Помощь должна быть доступна всем.</p>
+                </div>
+                <div class="feature-card animate-in" style="animation-delay: 0.6s;">
+                    <div class="feature-icon"><i class="fas fa-language"></i></div>
+                    <h3 class="feature-title">Просто и понятно</h3>
+                    <p>Четкие и понятные рекомендации без сложных медицинских терминов.</p>
+                </div>
+                <div class="feature-card animate-in" style="animation-delay: 0.8s;">
+                    <div class="feature-icon"><i class="fas fa-dog"></i></div>
+                    <h3 class="feature-title">Все виды животных</h3>
+                    <p>Собаки, кошки, птицы, грызуны, рептилии - мы помогаем всем домашним питомцам.</p>
+                </div>
+                <div class="feature-card animate-in" style="animation-delay: 1s;">
+                    <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3 class="feature-title">Экстренные случаи</h3>
+                    <p>Узнайте, требует ли состояние вашего питомца срочного визита к ветеринару.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title animate-in">Как получить <span class="text-gradient">помощь</span></h2>
+            <div class="steps">
+                <div class="steps-connector"></div>
+                <div class="step animate-in">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Откройте бота</h3>
+                    <p class="step-description">Перейдите в Telegram и найдите нашего бота @animal_vethelp_bot или нажмите кнопку ниже.</p>
+                </div>
+                <div class="step animate-in" style="animation-delay: 0.2s;">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Опишите проблему</h3>
+                    <p class="step-description">Расскажите о симптомах вашего питомца простыми словами. Можно прикрепить фото или видео.</p>
+                </div>
+                <div class="step animate-in" style="animation-delay: 0.4s;">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Получите ответ</h3>
+                    <p class="step-description">AI-ветеринар проанализирует ситуацию и даст рекомендации по лечению и дальнейшим действиям.</p>
+                </div>
+            </div>
+            <div class="text-center animate-in" style="animation-delay: 0.6s;">
+                <a href="https://t.me/animal_vethelp_bot" class="btn btn-primary btn-lg mt-5">Попробовать сейчас</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="testimonials-pattern"></div>
+        <div class="container">
+            <h2 class="section-title animate-in">Что говорят <span class="text-gradient">владельцы</span></h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card animate-in">
+                    <p class="testimonial-content">Бот реально спас мою кошку! Ночью у нее началась рвота, все клиники закрыты. Бот объяснил, что делать до утра, и посоветовал срочно везти к врачу утром. Оказалось,отравление. Ветеринар подтвердил все рекомендации бота.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Анна К." class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>Анна К.</h4>
+                            <p>Владелица кошки</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-in" style="animation-delay: 0.2s;">
+                    <p class="testimonial-content">Удивительно точные диагнозы! Описал симптомы своей собаки, бот предположил аллергию. В клинике после анализов подтвердили. Теперь знаю, чем кормить питомца и как лечить в случае обострения.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Дмитрий С." class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>Дмитрий С.</h4>
+                            <p>Владелец собаки</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-in" style="animation-delay: 0.4s;">
+                    <p class="testimonial-content">Лучшее, что случалось с моим попугаем! Когда он стал вялым, бот посоветовал изменить рацион и дал инструкции по уходу. Через неделю птичка снова активная и веселая. Спасибо за помощь!</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Елена В." class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>Елена В.</h4>
+                            <p>Владелица попугая</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <h2 class="section-title animate-in">Частые <span class="text-gradient">вопросы</span></h2>
+            <div class="faq-container">
+                <div class="faq-item animate-in">
+                    <div class="faq-question">Насколько точны рекомендации бота?</div>
+                    <div class="faq-answer">
+                        <p>Наш AI-ветеринар обучен на тысячах реальных случаев и медицинских источниках. Точность первичной диагностики составляет около 85%, что сопоставимо с очной консультацией. Однако в сложных случаях мы всегда рекомендуем обратиться к очному специалисту.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-in" style="animation-delay: 0.1s;">
+                    <div class="faq-question">Какие животные поддерживаются?</div>
+                    <div class="faq-answer">
+                        <p>Бот может помочь с собаками, кошками, птицами, грызунами (хомяки, морские свинки, крысы), кроликами, рептилиями и некоторыми другими домашними питомцами. Для сельскохозяйственных животных рекомендации могут быть ограничены.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-in" style="animation-delay: 0.2s;">
+                    <div class="faq-question">Как обрабатываются мои данные?</div>
+                    <div class="faq-answer">
+                        <p>Мы серьезно относимся к конфиденциальности. Все ваши запросы анонимны, мы не храним персональные данные. История чата доступна только вам и удаляется по вашему желанию.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-in" style="animation-delay: 0.3s;">
+                    <div class="faq-question">Почему сервис бесплатный?</div>
+                    <div class="faq-answer">
+                        <p>Мы верим, что базовая ветеринарная помощь должна быть доступна каждому. В будущем возможны премиум-функции, но основные консультации останутся бесплатными.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-in" style="animation-delay: 0.4s;">
+                    <div class="faq-question">Как часто можно обращаться за консультациями?</div>
+                    <div class="faq-answer">
+                        <p>Сколько угодно! Бот доступен 24/7 без ограничений на количество запросов. Вы можете консультироваться по разным вопросам и питомцам.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title animate-in">Помогите своему питомцу прямо сейчас!</h2>
+                <p class="cta-description animate-in" style="animation-delay: 0.2s;">Не ждите ухудшения состояния - получите профессиональную консультацию AI-ветеринара бесплатно.</p>
+                <a href="https://t.me/animal_vethelp_bot" class="btn cta-btn btn-lg animate-in" style="animation-delay: 0.4s;">Начать чат с ветеринаром</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">
+                        <span class="footer-logo-icon"><i class="fas fa-paw"></i></span>
+                        <span>Vet<span>Care</span>AI</span>
+                    </a>
+                    <p class="footer-description">AI-ветеринар в вашем телефоне. Профессиональная помощь для ваших питомцев 24/7.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Возможности</a></li>
+                        <li><a href="#how-it-works">Как это работает</a></li>
+                        <li><a href="#testimonials">Отзывы</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Животные</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Для собак</a></li>
+                        <li><a href="#">Для кошек</a></li>
+                        <li><a href="#">Для птиц</a></li>
+                        <li><a href="#">Для грызунов</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Контакты</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:support@vetcareai.com">support@vetcareai.com</a></li>
+                        <li><a href="https://t.me/animal_vethelp_bot">@animal_vethelp_bot</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Условия использования</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 VetCareAI. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Animate elements on scroll
+        const animateElements = document.querySelectorAll('.animate-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
+```
