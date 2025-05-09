@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal VetHelp - Ветеринарный помощник в Telegram</title>
+    <meta name="description" content="Профессиональная помощь вашему питомцу 24/7. Наш Telegram-бот с искусственным интеллектом предоставит точные рекомендации по здоровью вашего животного.">
+    <meta name="keywords" content="ветеринар, помощь животным, телеграм бот, консультация ветеринара, здоровье питомца, AI ветеринар">
+    <meta property="og:title" content="Animal VetHelp - Ветеринарный помощник в Telegram">
+    <meta property="og:description" content="Профессиональная помощь вашему питомцу 24/7 через Telegram-бота">
+    <meta property="og:image" content="https://example.com/images/og-image.jpg">
+    <meta property="og:url" content="https://example.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="paw"><i class="fas fa-paw"></i></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <i class="fas fa-paw"></i>
+                    <span>Animal VetHelp</span>
+                </div>
+                <nav class="nav">
+                    <a href="#features">Возможности</a>
+                    <a href="#how-it-works">Как работает</a>
+                    <a href="#reviews">Отзывы</a>
+                    <a href="#faq">FAQ</a>
+                </nav>
+                <a href="https://t.me/animal_vethelp_bot" class="btn btn-primary">Перейти к боту</a>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Профессиональная помощь вашему питомцу <span>24/7</span></h1>
+                <p class="subtitle">Наш Telegram-бот с искусственным интеллектом предоставит точные рекомендации по здоровью вашего животного в любое время дня и ночи.</p>
+                <div class="hero-buttons">
+                    <a href="https://t.me/animal_vethelp_bot" class="btn btn-primary btn-large">Начать консультацию <i class="fas fa-arrow-right"></i></a>
+                    <a href="#how-it-works" class="btn btn-secondary btn-large">Как это работает</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="parallax-container">
+                    <img src="images/dog-hero.png" alt="Счастливая собака" class="parallax-layer" data-depth="0.2">
+                    <div class="floating-icons">
+                        <i class="fas fa-heartbeat floating-icon" style="top: 20%; left: 10%;"></i>
+                        <i class="fas fa-stethoscope floating-icon" style="top: 70%; left: 80%;"></i>
+                        <i class="fas fa-bone floating-icon" style="top: 40%; left: 85%;"></i>
+                        <i class="fas fa-shield-alt floating-icon" style="top: 80%; left: 15%;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="currentColor"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="currentColor"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="currentColor"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают <span>Animal VetHelp</span></h2>
+            <p class="section-subtitle">Наш бот сочетает в себе передовые технологии искусственного интеллекта и экспертные знания ветеринарии</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Круглосуточная помощь</h3>
+                    <p>Получайте консультации в любое время, даже ночью или в выходные дни, когда обычные клиники закрыты.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Искусственный интеллект</h3>
+                    <p>Наш бот анализирует тысячи случаев и предоставляет наиболее точные рекомендации для вашего питомца.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Экономия средств</h3>
+                    <p>Избегайте ненужных визитов к ветеринару с предварительной онлайн-консультацией.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>База знаний</h3>
+                    <p>Доступ к обширной базе знаний по уходу, питанию и лечению различных животных.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>История консультаций</h3>
+                    <p>Все ваши обращения сохраняются, что позволяет отслеживать состояние питомца в динамике.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Постоянное обучение</h3>
+                    <p>Наш ИИ постоянно обучается на новых данных, улучшая качество рекомендаций.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Как работает <span>наш бот</span></h2>
+            <p class="section-subtitle">Всего 3 простых шага до профессиональной консультации</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Запустите бота в Telegram</h3>
+                        <p>Перейдите по ссылке <a href="https://t.me/animal_vethelp_bot">@animal_vethelp_bot</a> и нажмите "Start".</p>
+                    </div>
+                    <div class="step-image">
+                        <img src="images/step1.png" alt="Шаг 1 - Запуск бота" class="parallax-layer" data-depth="0.1">
+                    </div>
+                </div>
+                
+                <div class="step step-reverse">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Опишите проблему</h3>
+                        <p>Ответьте на несколько вопросов бота о состоянии вашего питомца. Чем подробнее описание, тем точнее рекомендация.</p>
+                    </div>
+                    <div class="step-image">
+                        <img src="images/step2.png" alt="Шаг 2 - Описание проблемы" class="parallax-layer" data-depth="0.1">
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Получите рекомендации</h3>
+                        <p>Бот проанализирует ситуацию и предоставит профессиональные рекомендации по уходу или лечению.</p>
+                    </div>
+                    <div class="step-image">
+                        <img src="images/step3.png" alt="Шаг 3 - Получение рекомендаций" class="parallax-layer" data-depth="0.1">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-box">
+                <h3>Готовы попробовать?</h3>
+                <p>Помогите своему питомцу прямо сейчас - это бесплатно и займет всего пару минут!</p>
+                <a href="https://t.me/animal_vethelp_bot" class="btn btn-primary btn-large">Начать консультацию <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animals Gallery -->
+    <section class="animals-gallery">
+        <div class="container">
+            <h2 class="section-title">Мы помогаем <span>всем питомцам</span></h2>
+            <p class="section-subtitle">Бот обучен работать с различными видами домашних животных</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/dog.jpg" alt="Собака">
+                    <div class="gallery-overlay">
+                        <h3>Собаки</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cat.jpg" alt="Кошка">
+                    <div class="gallery-overlay">
+                        <h3>Кошки</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/bird.jpg" alt="Попугай">
+                    <div class="gallery-overlay">
+                        <h3>Птицы</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/rabbit.jpg" alt="Кролик">
+                    <div class="gallery-overlay">
+                        <h3>Грызуны</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/reptile.jpg" alt="Рептилия">
+                    <div class="gallery-overlay">
+                        <h3>Рептилии</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/fish.jpg" alt="Рыбка">
+                    <div class="gallery-overlay">
+                        <h3>Рыбы</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы <span>владельцев</span></h2>
+            <p class="section-subtitle">Что говорят о нашем боте те, кто уже им воспользовался</p>
+            
+            <div class="reviews-slider">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="images/user1.jpg" alt="Анна К." class="review-avatar">
+                        <div class="review-user">
+                            <h4>Анна К.</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Бот помог, когда мой кот внезапно отказался от еды. Получила четкие инструкции, что делать. На следующий день кот уже был в порядке. Сэкономила время и деньги на визите к ветеринару!"</p>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="images/user2.jpg" alt="Дмитрий С." class="review-avatar">
+                        <div class="review-user">
+                            <h4>Дмитрий С.</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Очень удобно, особенно ночью, когда клиники не работают. Собаке стало плохо, бот подсказал, какие меры принять до утра. Утром поехали к врачу уже с пониманием ситуации."</p>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="images/user3.jpg" alt="Елена М." class="review-avatar">
+                        <div class="review-user">
+                            <h4>Елена М.</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"У меня две кошки и попугай. Часто возникают вопросы по уходу. Бот стал моим постоянным помощником. Рекомендации точные, совпадают с тем, что говорит наш ветеринар."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Частые <span>вопросы</span></h2>
+            <p class="section-subtitle">Ответы на наиболее популярные вопросы о нашем сервисе</p>
+            
+            <div class="faq-accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Насколько точны рекомендации бота?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Наш бот использует современные алгоритмы искусственного интеллекта, обученные на тысячах реальных случаев из ветеринарной практики. Точность рекомендаций составляет около 85-90% для распространенных проблем. Однако для сложных или экстренных случаев мы всегда рекомендуем обратиться к очному ветеринару.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Какие животные поддерживаются?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Бот обучен работать с собаками, кошками, грызунами (кролики, хомяки, морские свинки), птицами, рептилиями и рыбами. Для экзотических животных рекомендации могут быть менее точными из-за ограниченной базы данных.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Это полностью заменяет визит к ветеринару?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Нет, наш бот не заменяет полноценного ветеринарного осмотра, особенно в сложных или экстренных случаях. Это инструмент для первичной оценки ситуации, который помогает понять, насколько срочно нужно обратиться к врачу, и что можно сделать до визита в клинику.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Как часто обновляются знания бота?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>База знаний и алгоритмы бота обновляются еженедельно. Мы постоянно добавляем новые случаи и корректируем рекомендации на основе последних ветеринарных исследований и отзывов пользователей.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Есть ли ограничения по использованию?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Бот доступен бесплатно без ограничений по количеству консультаций. Однако мы просим использовать его разумно - для реальных вопросов о здоровье питомцев, а не для тестирования или развлечения.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Помогите своему питомцу <span>прямо сейчас</span></h2>
+                <p>Не откладывайте заботу о здоровье вашего любимца. Получите профессиональную консультацию в несколько кликов.</p>
+                <a href="https://t.me/animal_vethelp_bot" class="btn btn-primary btn-large">Начать общение с ботом <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="cta-image">
+                <img src="images/cta-dog.png" alt="Счастливая собака" class="parallax-layer" data-depth="0.15">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">
+                        <i class="fas fa-paw"></i>
+                        <span>Animal VetHelp</span>
+                    </div>
+                    <p>Инновационный Telegram-бот с искусственным интеллектом для помощи вашим питомцам 24/7.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Ссылки</h3>
+                    <ul>
+                        <li><a href="#features">Возможности</a></li>
+                        <li><a href="#how-it-works">Как это работает</a></li>
+                        <li><a href="#reviews">Отзывы</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="https://t.me/animal_vethelp_bot">Перейти к боту</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@animalvethelp.com</li>
+                        <li><i class="fas fa-paper-plane"></i> @animal_vethelp_support</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Animal VetHelp. Все права защищены.</p>
+                <div class="footer-legal">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
