@@ -1,0 +1,18 @@
+vet-bot-landing/
+├── index.html         (главная страница)
+├── css/
+│   └── style.css      (стили)
+├── js/
+│   └── script.js      (скрипты)
+└── images/
+    ├── dog-hero.jpg   (основное изображение)
+    ├── step1.jpg      (шаг 1)
+    ├── step2.jpg      (шаг 2)
+    ├── step3.jpg      (шаг 3)
+    ├── cta-dog.jpg    (финальное CTA)
+    ├── dog.jpg        (галерея)
+    ├── cat.jpg        (галерея)
+    ├── bird.jpg       (галерея)
+    ├── rabbit.jpg     (галерея)
+    ├── reptile.jpg    (галерея)
+    └── fish.jpg       (галерея)
